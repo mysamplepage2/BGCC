@@ -1,26 +1,289 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Soria';
+  src: url('/fonts/soria/soria-font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sprat';
+  src: url('/fonts/SpratVF.woff2') format('woff2'),
+       url('/fonts/Sprat-Bold.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/Author-Variable.woff2') format('woff2'),
+       url('/fonts/Author-Regular.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --color-bgcc-bg: #141414;
+  --color-bgcc-surface: #1a1a1a;
+  --color-bgcc-dark-btn: #080808;
+  --color-bgcc-gold: #BF8440;
+  --color-bgcc-dark-gold: #a67337;
+  --color-bgcc-accent: #E76814;
+  --color-bgcc-orange: #E76814;
+  --color-bgcc-text: #e2e8f0;
+  --color-bgcc-muted: #94a3b8;
+  --color-bgcc-subtle: #64748b;
+  --color-bgcc-paper: #fdfbf7;
+  --color-bgcc-ivory: #ede8d8;
+  --color-bgcc-book-text: #333333;
+  --color-bgcc-book-muted: #a8a296;
+
+  --font-serif: var(--font-cardo), 'Soria', var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cardo), 'Soria', var(--font-playfair), Georgia, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #141414;
+  --foreground: #e2e8f0;
+  --color-bgcc-bg: #141414;
+  --color-bgcc-gold: #BF8440;
+  --color-bgcc-accent: #E76814;
+  --color-bgcc-dark: #080808;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism Utilities */
+.glass-pane {
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+}
+
+.glass-card {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  box-shadow: 0 14px 36px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(191, 132, 64, 0.15);
+}
+
+/* Dark Neumorphism Extruded (Raised Surfaces) */
+.neu-dark {
+  background: #141414;
+  box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.85), -5px -5px 16px rgba(255, 255, 255, 0.04);
+}
+
+/* Dark Neumorphism Inset (Wells, Inputs, Depressions) */
+.neu-dark-inset {
+  background: #121212;
+  box-shadow: inset 8px 8px 18px rgba(0, 0, 0, 0.9), inset -4px -4px 12px rgba(255, 255, 255, 0.04);
+}
+
+/* 3D Tactile Button Styles */
+.neu-btn-tactile {
+  background: #080808;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.9),
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.18),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+  
+  user-select: none;
+}
+
+.neu-btn-tactile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.09), transparent);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.neu-btn-tactile:hover {
+  border-color: rgba(191, 132, 64, 0.6);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.9),
+    0 0 22px rgba(191, 132, 64, 0.35),
+    inset 0 0 14px rgba(191, 132, 64, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.neu-btn-tactile:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.9),
+    inset 0 3px 8px rgba(0, 0, 0, 0.95),
+    inset 0 0 8px rgba(191, 132, 64, 0.3);
+}
+
+/* Secondary Gold Button */
+.btn-gold {
+  background: linear-gradient(135deg, #BF8440 0%, #9e692a 100%);
+  color: #080808;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(191, 132, 64, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #d49852 0%, #b37731 100%);
+  box-shadow: 0 6px 20px rgba(191, 132, 64, 0.6), 0 0 12px rgba(231, 104, 20, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 6px rgba(191, 132, 64, 0.4);
+}
+
+/* Masked Slide-Up Reveal Mechanics */
+.reveal-wrapper {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-text {
+  display: block;
+  transform: translateY(120%);
+  animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Infinite Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 90s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* 3D Transform Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 3D Book Extrusion */
+.book-extrusion-gold {
+  filter: 
+    drop-shadow(1px 1px 0px #a67337)
+    drop-shadow(2px 2px 0px #805726)
+    drop-shadow(3px 3px 0px #5c3c17)
+    drop-shadow(8px 14px 20px rgba(0, 0, 0, 0.85));
+}
+
+/* Focus Ring Accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #141414, 0 0 0 4px #BF8440;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+  border: 2px solid #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BF8440;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-text {
+    transform: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
 }
