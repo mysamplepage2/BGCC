@@ -36,7 +36,8 @@ export const Navbar: React.FC = () => {
 
   // Close mobile drawer on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    const timer = setTimeout(() => setMobileMenuOpen(false), 0);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   const isActive = (href: string) => {

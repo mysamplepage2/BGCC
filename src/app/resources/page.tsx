@@ -5,24 +5,20 @@ import Image from 'next/image';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import resourcesData from '@/data/resources.json';
 
-export default function ResourcesPage() {
-  const casebooks = resourcesData.filter(r => r.category === 'Casebooks');
-  const primers = resourcesData.filter(r => r.category === 'Industry Primers');
+interface ResourceItem {
+  id: string;
+  title: string;
+  description?: string;
+  category: string;
+  pdfUrl: string;
+  coverUrl: string;
+}
 
-  interface ResourceItem {
-    id: string;
-    title: string;
-    description?: string;
-    category: string;
-    pdfUrl: string;
-    coverUrl: string;
-  }
-
-  const ResourceGrid = ({ items, title }: { items: ResourceItem[], title: string }) => (
-    <div className="mb-20">
-      <h2 className="text-3xl font-display font-bold text-white mb-8 border-b border-white/10 pb-4">
-        {title}
-      </h2>
+const ResourceGrid = ({ items, title }: { items: ResourceItem[], title: string }) => (
+  <div className="mb-20">
+    <h2 className="text-3xl font-display font-bold text-white mb-8 border-b border-white/10 pb-4">
+      {title}
+    </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {items.map((item) => (
           <div
@@ -60,9 +56,13 @@ export default function ResourcesPage() {
             </div>
           </div>
         ))}
-      </div>
     </div>
-  );
+  </div>
+);
+
+export default function ResourcesPage() {
+  const casebooks = resourcesData.filter(r => r.category === 'Casebooks');
+  const primers = resourcesData.filter(r => r.category === 'Industry Primers');
 
   return (
     <div className="min-h-screen pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

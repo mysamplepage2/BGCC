@@ -18,7 +18,10 @@ export const Book3DHero: React.FC<Book3DHeroProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => setIsMounted(true), []);
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
 
