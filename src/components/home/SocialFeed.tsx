@@ -49,8 +49,7 @@ export const SocialFeed: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <SectionHeader
           title="Live Social Feed"
-          subtitle="Stay updated with our latest case competition dispatches, industry insights, and club life."
-          align="left"
+align="left"
           titleHighlightWords={['Social']}
         />
       </div>

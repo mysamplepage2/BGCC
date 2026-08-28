@@ -98,8 +98,7 @@ export const LeadershipPyramid: React.FC = () => {
       {/* Section Header */}
       <SectionHeader
         title="The people behind BGCC."
-        subtitle="Executive directors leading strategy, operations, partnerships, and technical innovation."
-        align="center"
+align="center"
         className="mb-14"
         titleHighlightWords={['people', 'BGCC']}
       />
