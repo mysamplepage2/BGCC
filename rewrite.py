@@ -1,35 +1,16 @@
-'use client';
+import os
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { coordinators } from '@/data/team';
-import { Coordinator } from '@/types';
-import { SectionHeader } from '@/components/ui/SectionHeader';
-import { User, ExternalLink } from 'lucide-react';
+filepath = 'src/components/home/LeadershipPyramid.tsx'
+with open(filepath, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-const LinkedInIcon = ({ className }: { className?: string }) => (
-  <svg
-    className={className}
-    fill="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73a1.73 1.73 0 0 0 1.72 1.73c.95 0 1.73-.78 1.73-1.73 0-.95-.78-1.73-1.73-1.73Z" />
-  </svg>
-);
+import re
 
-export const LeadershipPyramid: React.FC = () => {
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+# We need to replace the entire renderLeaderCard function
+old_func_pattern = r"const renderLeaderCard = \(leader: Coordinator, isApex = false\) => \{.*?\n  \};\n"
+old_func_match = re.search(old_func_pattern, content, re.DOTALL)
 
-  const handleImageError = (id: string) => {
-    setImageErrors((prev) => ({ ...prev, [id]: true }));
-  };
-
-  const president = coordinators.find((c) => c.tier === 1 || c.row === 'top');
-  const middleTier = coordinators.filter((c) => c.tier === 2 || c.row === 'middle');
-  const bottomTier = coordinators.filter((c) => c.tier === 3 || c.row === 'bottom');
-
-  const renderLeaderCard = (leader: Coordinator, isApex = false) => {
+new_func = """const renderLeaderCard = (leader: Coordinator, isApex = false) => {
     const hasError = imageErrors[leader.id];
     const initials = leader.name
       .split(' ')
@@ -92,43 +73,12 @@ export const LeadershipPyramid: React.FC = () => {
       </div>
     );
   };
+"""
 
-  return (
-    <section className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" aria-label="Leadership Directorate">
-      {/* Section Header */}
-      <SectionHeader
-        title="The people behind BGCC."
-        subtitle="Executive directors leading strategy, operations, partnerships, and technical innovation."
-        align="center"
-        className="mb-14"
-        titleHighlightWords={['people', 'BGCC']}
-      />
-
-      {/* 1-2-2 Pyramid Directorate Layout */}
-      <div className="space-y-10 sm:space-y-12">
-        {/* Tier 1: Apex (President) */}
-        {president && (
-          <div className="flex justify-center">
-            {renderLeaderCard(president, true)}
-          </div>
-        )}
-
-        {/* Tier 2: Senior Directors (2 Columns) */}
-        {middleTier.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {middleTier.map((leader) => renderLeaderCard(leader))}
-          </div>
-        )}
-
-        {/* Tier 3: Functional Directors (2 Columns) */}
-        {bottomTier.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {bottomTier.map((leader) => renderLeaderCard(leader))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
-
-export default LeadershipPyramid;
+if old_func_match:
+    content = content[:old_func_match.start()] + new_func + content[old_func_match.end():]
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print("Replaced renderLeaderCard successfully.")
+else:
+    print("Could not find renderLeaderCard to replace.")
