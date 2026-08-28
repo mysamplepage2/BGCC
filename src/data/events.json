@@ -2,9 +2,10 @@
   {
     "id": 1,
     "title": "Case Consilium",
-    "date": "2026-10-01",
+    "date": "31 August 2026",
     "description": "The premier national case competition of BITS Pilani Goa Campus. Bringing together 3,500+ top collegiate minds across India to solve complex corporate strategy problems judged by partners from McKinsey, BCG, and Bain. Prize Pool: 130 Lakhs+ Total Prizes.",
-    "image": "/assets/events/case-consilium.png"
+    "image": "/assets/events/case-consilium.png",
+    "upcoming": true
   },
   {
     "id": 2,

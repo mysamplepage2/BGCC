@@ -17,9 +17,7 @@ export const EventsTimeline: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
           Our <span className="text-[#BF8440]">Legacy</span>
         </h2>
-        <p className="text-[#94a3b8] font-sans max-w-2xl mx-auto text-lg">
-          Click on any poster to turn back the pages of time and explore our history of premier competitions and workshops.
-        </p>
+        
       </div>
 
       <div className="relative max-w-5xl mx-auto py-10">

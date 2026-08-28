@@ -11,6 +11,7 @@ interface EventProps {
     date: string;
     description: string;
     image: string;
+    upcoming?: boolean;
   };
 }
 
@@ -29,6 +30,11 @@ export const EventCard: React.FC<EventProps> = ({ event }) => {
       >
         {/* FRONT: Poster + Overlay */}
         <div className="absolute inset-0 [backface-visibility:hidden] rounded-xl overflow-hidden neu-dark border border-white/5">
+          {event.upcoming && (
+            <div className="absolute top-4 right-4 bg-gradient-to-r from-[#BF8440] to-[#E5B869] text-[#141414] font-bold px-4 py-1.5 text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-full z-20 shadow-[0_4px_15px_rgba(191,132,64,0.4)]">
+              Upcoming Event
+            </div>
+          )}
           <Image
             src={event.image || '/assets/hero-bg.jpg'}
             alt={event.title}
