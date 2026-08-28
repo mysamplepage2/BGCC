@@ -28,11 +28,15 @@ export const WhoWeAre: React.FC = () => {
               We are <br />
               <span className="text-[#BF8440] italic">BGCC.</span>
             </h3>
-            <TextReveal3D 
-              as="p"
-              text="BITS Goa Consulting Club is the premier student-led consulting organization at BITS Pilani, Goa Campus. We empower collegiate problem solvers to deliver corporate-grade strategic consulting, bridging the gap between academic brilliance and industry realities."
-              className="text-lg md:text-xl font-sans text-[#94a3b8] leading-relaxed max-w-2xl text-center justify-center"
-            />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl font-sans text-[#94a3b8] leading-relaxed max-w-2xl text-center justify-center mt-6"
+            >
+              BITS Goa Consulting Club is the premier student-led consulting organization at BITS Pilani, Goa Campus. We empower collegiate problem solvers to deliver corporate-grade strategic consulting, bridging the gap between academic brilliance and industry realities.
+            </motion.p>
           </motion.div>
         </div>
 

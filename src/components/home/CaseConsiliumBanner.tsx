@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button3D } from '@/components/ui/Button3D';
 import { TextReveal3D } from '@/components/ui/TextReveal3D';
@@ -18,11 +19,15 @@ export const CaseConsiliumBanner: React.FC = () => {
             <span className="text-[#BF8440] italic">2025–26</span>
           </h2>
 
-          <TextReveal3D 
-            as="p"
-            text="India’s premier nationwide collegiate consulting challenge. Tackle high-stakes strategic dilemmas crafted by seasoned management consultants, present to industry judges, and win game-changing career rewards from our ₹30 Lakhs prize pool."
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-base sm:text-lg text-[#94a3b8] max-w-xl leading-relaxed mb-10 font-sans"
-          />
+          >
+            India’s premier nationwide collegiate consulting challenge. Tackle high-stakes strategic dilemmas crafted by seasoned management consultants, present to industry judges, and win game-changing career rewards from our ₹130 Lakhs prize pool.
+          </motion.p>
 
           <Button3D
             href="https://unstop.com/competitions/case-consilium-bits-goa-consulting-club-bgcc-1734140"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { TextReveal3D } from '@/components/ui/TextReveal3D';
 
@@ -48,15 +49,18 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       </div>
 
       {subtitle && (
-        <TextReveal3D
-          as="p"
-          text={subtitle}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className={cn(
             'mt-4 text-base sm:text-lg md:text-xl text-[#94a3b8] max-w-2xl font-light leading-relaxed',
             subtitleClassName
           )}
-          highlightWords={subtitleHighlightWords}
-        />
+        >
+          {subtitle}
+        </motion.p>
       )}
     </div>
   );

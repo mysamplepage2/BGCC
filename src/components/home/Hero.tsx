@@ -48,12 +48,14 @@ export const Hero: React.FC = () => {
           
           {/* Subtitle (Libre Baskerville, Gold) */}
           <div className="overflow-hidden mt-6 md:mt-10">
-            <TextReveal3D 
-              as="p"
-              text="Insight. Impact. Excellence."
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-3xl font-sans text-[#BF8440] italic tracking-wider justify-center"
-              wordClassName="text-[#BF8440]"
-            />
+            >
+              Insight. Impact. Excellence.
+            </motion.p>
           </div>
         </motion.div>
       </div>
