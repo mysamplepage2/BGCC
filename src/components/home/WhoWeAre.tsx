@@ -26,7 +26,7 @@ export const WhoWeAre: React.FC = () => {
 
             <h3 className="text-4xl sm:text-5xl md:text-6xl font-display text-[#e2e8f0] mb-8 leading-tight text-center">
               We are <br />
-              <span className="text-[#BF8440] italic">BGCC.</span>
+              <span className="text-[#BF8440] italic text-[1.5em] leading-none inline-block mt-2">BGCC.</span>
             </h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
