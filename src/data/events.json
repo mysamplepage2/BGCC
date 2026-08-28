@@ -4,7 +4,7 @@
     "title": "Case Consilium",
     "date": "2026-10-01",
     "description": "The premier national case competition of BITS Pilani Goa Campus. Bringing together 3,500+ top collegiate minds across India to solve complex corporate strategy problems judged by partners from McKinsey, BCG, and Bain. Prize Pool: 130 Lakhs+ Total Prizes.",
-    "image": ""
+    "image": "/assets/events/case-consilium.png"
   },
   {
     "id": 2,
@@ -33,13 +33,6 @@
     "date": "2026-01-24",
     "description": "The Social Conundrum:  \n \nQuark 2026 s flagship Social Impact Case Competition is your opportunity to address real-\nworld social issues and create innovative solutions that make a difference. \n \n Deadline: 27th January 2026  \n Prizes worth 80,000+",
     "image": "/assets/events/event-22.jpeg"
-  },
-  {
-    "id": 6,
-    "title": "HSBC India Business Case Programme",
-    "date": "2025-12-15",
-    "description": "Prestigious corporate strategy initiative organized in exclusive partnership with HSBC India. Undergraduates develop multi-market financial inclusion models, sustainable green finance frameworks, and retail banking digitalization roadmaps.",
-    "image": ""
   },
   {
     "id": 7,
