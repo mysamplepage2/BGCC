@@ -7,6 +7,10 @@ import { TextReveal3D } from '@/components/ui/TextReveal3D';
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full min-h-[90dvh] flex flex-col justify-center overflow-hidden" aria-label="Hero Section">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#BF8440]/10 rounded-full blur-[120px]" />
+      </div>
 
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-10 lg:px-14 mt-16 md:mt-24 text-center flex flex-col items-center">

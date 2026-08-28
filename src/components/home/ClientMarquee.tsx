@@ -10,17 +10,17 @@ export const ClientMarquee: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Curate unique client logos (all 29)
-  const clientLogos = Array.from({ length: 29 }, (_, i) => {
+  // Curate unique client logos (all 28)
+  const clientLogos = Array.from({ length: 28 }, (_, i) => {
     const matchedClient = clients[i] || clients[i % clients.length];
     return {
       id: `logo-${i + 1}`,
       number: i + 1,
       name: matchedClient?.name || `Client Partner ${i + 1}`,
-      logo: `/assets/logos/${i + 1}.png`,
+      logo: `/assets/logos/logo-${i + 1}.png`,
       industry: matchedClient?.industry || 'Enterprise Partner',
     };
-  }).filter(client => client.number !== 15);
+  });
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -79,50 +79,46 @@ export const ClientMarquee: React.FC = () => {
         >
           {/* First Pass (1 to 29) */}
           <div className="flex gap-4 sm:gap-6 pr-4 sm:pr-6 shrink-0">
-            {clientLogos.map((item) => (
-              <div
-                key={`first-${item.id}`}
-                className="w-[180px] sm:w-[220px] h-auto shrink-0 rounded-2xl neu-dark p-4 flex flex-col items-center justify-between transition-all duration-300 hover:border-[#BF8440]/50 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(191,132,64,0.2)] group"
-              >
-                <div className="w-full h-[130px] sm:h-[160px] bg-white rounded-xl flex items-center justify-center p-4">
+              {clientLogos.map((item) => (
+                <div
+                  key={`first-${item.id}`}
+                  className="w-[280px] sm:w-[360px] h-[160px] sm:h-[200px] shrink-0 flex items-center justify-center transition-all duration-300 hover:-translate-y-2 group"
+                >
                   <Image
                     src={item.logo}
                     alt={`${item.name} logo`}
-                    width={140}
-                    height={140}
-                    className="object-contain w-full h-full"
+                    width={360}
+                    height={200}
+                    className="object-contain w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 scale-125"
                     onError={(e) => {
                       const target = e.target as HTMLElement;
                       target.style.display = 'none';
                     }}
                   />
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           {/* Second Duplicate Pass for Seamless Looping */}
           <div className="flex gap-4 sm:gap-6 pr-4 sm:pr-6 shrink-0">
-            {clientLogos.map((item) => (
-              <div
-                key={`second-${item.id}`}
-                className="w-[180px] sm:w-[220px] h-auto shrink-0 rounded-2xl neu-dark p-4 flex flex-col items-center justify-between transition-all duration-300 hover:border-[#BF8440]/50 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(191,132,64,0.2)] group"
-              >
-                <div className="w-full h-[130px] sm:h-[160px] bg-white rounded-xl flex items-center justify-center p-4">
+              {clientLogos.map((item) => (
+                <div
+                  key={`second-${item.id}`}
+                  className="w-[280px] sm:w-[360px] h-[160px] sm:h-[200px] shrink-0 flex items-center justify-center transition-all duration-300 hover:-translate-y-2 group"
+                >
                   <Image
                     src={item.logo}
                     alt={`${item.name} logo`}
-                    width={140}
-                    height={140}
-                    className="object-contain w-full h-full"
+                    width={360}
+                    height={200}
+                    className="object-contain w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 scale-125"
                     onError={(e) => {
                       const target = e.target as HTMLElement;
                       target.style.display = 'none';
                     }}
                   />
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>

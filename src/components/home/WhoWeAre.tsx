@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TextReveal3D } from '@/components/ui/TextReveal3D';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 export const WhoWeAre: React.FC = () => {
   return (
@@ -30,7 +31,7 @@ export const WhoWeAre: React.FC = () => {
             <TextReveal3D 
               as="p"
               text="BITS Goa Consulting Club is the premier student-led consulting organization at BITS Pilani, Goa Campus. We empower collegiate problem solvers to deliver corporate-grade strategic consulting, bridging the gap between academic brilliance and industry realities."
-              className="text-lg md:text-xl font-sans text-[#94a3b8] leading-relaxed max-w-2xl inline-flex text-center justify-center"
+              className="text-lg md:text-xl font-sans text-[#94a3b8] leading-relaxed max-w-2xl text-center justify-center"
             />
           </motion.div>
         </div>
@@ -45,7 +46,7 @@ export const WhoWeAre: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4">40+</div>
+            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4"><AnimatedCounter value={40} suffix="+" /></div>
             <div className="text-sm md:text-base font-bold text-[#e2e8f0] uppercase tracking-wider mb-2">Team Members</div>
             <p className="text-sm text-[#94a3b8] font-sans">Hand-picked consultants across engineering & economics disciplines.</p>
           </motion.div>
@@ -57,7 +58,7 @@ export const WhoWeAre: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4">90+</div>
+            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4"><AnimatedCounter value={90} suffix="+" /></div>
             <div className="text-sm md:text-base font-bold text-[#e2e8f0] uppercase tracking-wider mb-2">Projects Completed</div>
             <p className="text-sm text-[#94a3b8] font-sans">End-to-end strategic engagements delivered since 2020 inception.</p>
           </motion.div>
@@ -69,7 +70,7 @@ export const WhoWeAre: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4">60+</div>
+            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4"><AnimatedCounter value={60} suffix="+" /></div>
             <div className="text-sm md:text-base font-bold text-[#e2e8f0] uppercase tracking-wider mb-2">Happy Clients</div>
             <p className="text-sm text-[#94a3b8] font-sans">High-growth startups, enterprise conglomerates, & venture funds.</p>
           </motion.div>
@@ -81,7 +82,7 @@ export const WhoWeAre: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4">400K+</div>
+            <div className="text-5xl md:text-7xl font-display text-[#BF8440] tracking-tighter mb-4"><AnimatedCounter value={400000} suffix="+" /></div>
             <div className="text-sm md:text-base font-bold text-[#e2e8f0] uppercase tracking-wider mb-2">Impressions</div>
             <p className="text-sm text-[#94a3b8] font-sans">Cumulative reach across LinkedIn, case primers, and national summits.</p>
           </motion.div>

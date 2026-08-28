@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { events } from '@/data/events';
 import { EventsTimeline } from '@/components/events/EventsTimeline';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button3D } from '@/components/ui/Button3D';
@@ -58,7 +57,7 @@ export default function EventsPage() {
           </p>
         </div>
 
-        <EventsTimeline events={events} />
+        <EventsTimeline />
       </div>
 
       {/* Corporate Sponsorship / Partner Banner */}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "title": "BGCC Casebook",
+    "category": "Casebooks",
+    "pdfUrl": "/assets/resources/pdfs/casebook.pdf",
+    "coverUrl": "/assets/resources/covers/cover_casebook.jpg",
+    "description": "The official BITS Goa Consulting Club Casebook 2023-24. A comprehensive guide to cracking case interviews, featuring frameworks, guesstimates, and a curated set of cases spanning multiple industries to sharpen your problem-solving toolkit."
+  },
+  {
+    "id": "2",
+    "title": "Fintech Primer",
+    "category": "Industry Primers",
+    "pdfUrl": "/assets/resources/pdfs/fintech.pdf",
+    "coverUrl": "/assets/resources/covers/cover_fintech.jpg",
+    "description": "Decode the mechanics of capital and digital payments. This primer explores the fintech ecosystem, from seamless P2P transactions and payment gateways to the role of the NPCI network and emerging trends in financial technology."
+  },
+  {
+    "id": "3",
+    "title": "Logistics Primer",
+    "category": "Industry Primers",
+    "pdfUrl": "/assets/resources/pdfs/logistics.pdf",
+    "coverUrl": "/assets/resources/covers/cover_logistics.jpg",
+    "description": "An overview of the global logistics ecosystem. Covering key market dynamics, cost structures, value-chain players, and growth drivers. This primer equips you with concise insights to decode one of the world's most critical industries."
+  },
+  {
+    "id": "4",
+    "title": "Airline GTM Primer",
+    "category": "Industry Primers",
+    "pdfUrl": "/assets/resources/pdfs/airline_gtm.pdf",
+    "coverUrl": "/assets/resources/covers/cover_airline_gtm.jpg",
+    "description": "A comprehensive Go-To-Market strategy framework for the aviation industry. Explore strategic positioning, fleet planning, network focus, and market entry strategies tailored for modern full-service and regional airlines."
+  }
+]

@@ -21,7 +21,7 @@ export const CaseConsiliumBanner: React.FC = () => {
           <TextReveal3D 
             as="p"
             text="India’s premier nationwide collegiate consulting challenge. Tackle high-stakes strategic dilemmas crafted by seasoned management consultants, present to industry judges, and win game-changing career rewards from our ₹30 Lakhs prize pool."
-            className="text-base sm:text-lg text-[#94a3b8] max-w-xl leading-relaxed mb-10 font-sans block"
+            className="text-base sm:text-lg text-[#94a3b8] max-w-xl leading-relaxed mb-10 font-sans"
           />
 
           <Button3D
