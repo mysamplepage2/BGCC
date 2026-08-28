@@ -146,15 +146,7 @@ export const Book3DHero: React.FC<Book3DHeroProps> = ({
               >
                 Partner With Us
               </Button3D>
-              <Button3D
-                href="/clients"
-                variant="secondary"
-                size="lg"
-                icon={<ArrowUpRight className="w-4 h-4" />}
-                className="w-full sm:w-auto uppercase tracking-widest text-xs border-transparent bg-white/5"
-              >
-                Explore Projects
-              </Button3D>
+
             </motion.div>
 
             {/* Quick Proof Metrics Strip (Minimalized) */}

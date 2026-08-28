@@ -15,7 +15,6 @@ interface NavLinkItem {
 
 const navLinks: NavLinkItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Clients', href: '/clients' },
   { name: 'Resources', href: '/resources' },
   { name: 'Events', href: '/events' },
   { name: 'Partner with us', href: '/partner-with-us', isCta: true },

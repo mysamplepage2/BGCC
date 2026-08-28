@@ -76,9 +76,6 @@ export default function EventsPage() {
           <Button3D href="/partner-with-us" variant="gold" icon={<ArrowRight className="w-4 h-4" />}>
             Sponsor an Event Track
           </Button3D>
-          <Button3D href="/clients" variant="secondary">
-            View Past Client Case Studies
-          </Button3D>
         </div>
       </div>
     </div>
