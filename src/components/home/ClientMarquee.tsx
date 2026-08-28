@@ -38,8 +38,7 @@ export const ClientMarquee: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <SectionHeader
           title="Trusted by 60+ Industry Leaders"
-          subtitle="Delivering measurable strategic impact across unicorns, market leaders, and venture funds."
-          align="left"
+align="left"
           titleHighlightWords={['60+', 'Industry', 'Leaders']}
         />
 

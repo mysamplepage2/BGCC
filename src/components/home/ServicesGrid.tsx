@@ -53,8 +53,7 @@ export const ServicesGrid: React.FC = () => {
       {/* Top Section Header */}
       <SectionHeader 
         title="OUR SERVICES"
-        subtitle="We offer a plethora of services, including but not limited to:"
-        align="center"
+align="center"
         titleClassName="uppercase font-sans font-bold text-4xl sm:text-5xl md:text-6xl tracking-widest text-[#e2e8f0]"
         subtitleClassName="text-[#94a3b8] max-w-none text-base sm:text-lg"
         titleHighlightWords={['SERVICES']}
