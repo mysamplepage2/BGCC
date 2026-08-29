@@ -38,12 +38,32 @@ const InstagramIcon = ({ className }: { className?: string }) => (
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      alert(`Subscribed with ${email}`);
-      setEmail('');
+    if (!email) return;
+
+    setStatus('submitting');
+    try {
+      const endpoint = 'https://formspree.io/f/newsletter_bgcc';
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ email: email, _subject: 'New Newsletter Subscription' }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
     }
   };
 
@@ -57,20 +77,32 @@ export const Footer: React.FC = () => {
             Stay in Touch
           </h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            {status === 'success' && (
+              <div className="p-4 bg-green-500/10 border border-green-500/30 text-green-400 text-sm rounded-sm mb-2 text-left">
+                Thank you! You\'ve been subscribed to our newsletter.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="p-4 bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-sm mb-2 text-left">
+                Oops! Something went wrong. Please try again.
+              </div>
+            )}
             <input
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
               required
-              className="w-full bg-black/80 border border-white/10 px-6 py-4 text-base text-[#e2e8f0] placeholder-[#64748b] focus:outline-none focus:border-[#BF8440] transition-colors rounded-sm"
+              disabled={status === 'submitting'}
+              className="w-full bg-black/80 border border-white/10 px-6 py-4 text-base text-[#e2e8f0] placeholder-[#64748b] focus:outline-none focus:border-[#BF8440] transition-colors rounded-sm disabled:opacity-50"
               aria-label="Email address"
             />
             <button
               type="submit"
-              className="w-full bg-[#BF8440] text-black font-semibold uppercase tracking-[0.2em] py-4 hover:bg-[#d49852] transition-colors rounded-sm"
+              disabled={status === 'submitting'}
+              className="w-full bg-[#BF8440] text-black font-semibold uppercase tracking-[0.2em] py-4 hover:bg-[#d49852] transition-colors rounded-sm disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
             >
-              Submit
+              {status === 'submitting' ? 'Subscribing...' : 'Submit'}
             </button>
           </form>
         </div>
