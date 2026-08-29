@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
 
     setStatus('submitting');
     try {
-      const endpoint = 'https://formspree.io/f/newsletter_bgcc';
+      const endpoint = 'https://formspree.io/f/xvkogozg';
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {

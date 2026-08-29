@@ -38,7 +38,7 @@ export const PartnerForm: React.FC<PartnerFormProps> = ({ className }) => {
     }
 
     try {
-      const endpoint = 'https://formspree.io/f/partnerships_bgcc';
+      const endpoint = 'https://formspree.io/f/xvkogozg';
       
       const response = await fetch(endpoint, {
         method: 'POST',
