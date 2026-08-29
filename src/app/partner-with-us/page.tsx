@@ -50,8 +50,8 @@ export default function PartnerWithUsPage() {
                 <span className="text-base">Phone</span>
               </div>
               <div className="flex flex-col gap-2 text-sm text-[#94a3b8] pl-7">
-                <span>+91 93405 97932 – Aryan Gupta (President)</span>
-                <span>+91 74978 80227 – Yashveer Sabharwal (Partnerships)</span>
+                <span>+91 93405 97932</span>
+                <span>+91 74978 80227</span>
               </div>
             </div>
 
